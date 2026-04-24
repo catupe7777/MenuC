@@ -714,7 +714,7 @@
 
 <script>
 const WA = '598095662193';
-
+/*
 const products = [
   // Bebidas calientes
   { id:'cappuccino', cat:'calientes', emoji:'☕', name:'Cappuccino artesanal', desc:'Con leche vaporizada y toque de canela', price:'$180', tag:'popular' },
@@ -767,7 +767,11 @@ const products = [
   { id:'catering-cafe', cat:'eventos', emoji:'☕', name:'Catering de café', desc:'Para eventos y reuniones de empresa', price:'Consultar' },
   { id:'torta-cumple', cat:'eventos', emoji:'🎂', name:'Torta de cumpleaños', desc:'A pedido, sabores y decoración a elección', price:'Consultar' },
 ];
+*/
+  const SHEET_URL = "https://docs.google.com/spreadsheets/d/1l6JSlV5Lr-cE-OVh7eF6H0aFtGACmArcG6g9DqTddw8/export?format=csv";
+//const SHEET_URL = "https://api.allorigins.win/raw?url=https://docs.google.com/spreadsheets/d/e/2PACX-1vSxge4crpwwOrrYqScRC3ceAfWjDrFRKWqqOjlIP5RREH-GDE9sPlOLpiyEwhqTyG5gZk_jT279gQ-D/pub?gid=0&single=true&output=csv";
 
+let products = [];
 const catLabels = {
   todo:'Toda la carta',
   calientes:'Bebidas calientes',
