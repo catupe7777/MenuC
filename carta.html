@@ -782,9 +782,9 @@ async function loadData(){
     //const rows = text.split(",").slice(1);
     const rows = text.split("\r\n");
 
-    data = rows.map(row => {
+    products = rows.map(row => {
       const [id,name,price,img,cat] = row.split(",");
-      return { id, name, price, img, cat };
+      return { id, name, price, img, cat,emoji:'☕' };
     }).filter(i=>i.id);
 
     renderProducts();
