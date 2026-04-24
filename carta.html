@@ -772,6 +772,27 @@ const products = [
 //const SHEET_URL = "https://api.allorigins.win/raw?url=https://docs.google.com/spreadsheets/d/e/2PACX-1vSxge4crpwwOrrYqScRC3ceAfWjDrFRKWqqOjlIP5RREH-GDE9sPlOLpiyEwhqTyG5gZk_jT279gQ-D/pub?gid=0&single=true&output=csv";
 
 let products = [];
+
+async function loadData(){
+  try{
+    const res = await fetch(SHEET_URL);
+    const text = await res.text();
+
+    // Convert CSV a JSON simple
+    //const rows = text.split(",").slice(1);
+    const rows = text.split("\r\n");
+
+    data = rows.map(row => {
+      const [id,name,price,img,cat] = row.split(",");
+      return { id, name, price, img, cat };
+    }).filter(i=>i.id);
+
+    renderProducts();
+  }catch(e){
+    console.error("Error cargando Google Sheets", e);
+  }
+}
+
 const catLabels = {
   todo:'Toda la carta',
   calientes:'Bebidas calientes',
