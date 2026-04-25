@@ -779,22 +779,28 @@ async function loadData(){
     const res = await fetch(SHEET_URL);
     const text = await res.text();
 
-    // Convert CSV a JSON simple
-    //const rows = text.split(",").slice(1);
-    const rows = text.split("\r\n");
-    //const products = text.split("\r\n");
-    
+    const rows = text.trim().split("\n").slice(1); // quitamos headers
+
     products = rows.map(row => {
-      const [id,name,price,img,cat] = row.split(",");
-      return { id, name, price, img, cat,emoji:'☕' };
-    }).filter(i=>i.id);
-    
-    //renderProducts();
+      const cols = row.split(",");
+
+      return {
+        id: cols[0]?.trim(),
+        name: cols[1]?.trim(),
+        desc: cols[2]?.trim() || "",
+        price: cols[3]?.trim(),
+        cat: cols[4]?.trim(),
+        emoji: cols[5]?.trim() || "☕",
+        tag: cols[6]?.trim() || ""
+      };
+    }).filter(p => p.id);
+
+    renderProducts(); // 🔥 IMPORTANTE
+
   }catch(e){
     console.error("Error cargando Google Sheets", e);
   }
 }
-
 const catLabels = {
   todo:'Toda la carta',
   calientes:'Bebidas calientes',
@@ -816,7 +822,7 @@ function waUrl(productName) {
 }
 
 function renderProducts() {
-  loadData();
+  //loadData();
   const grid = document.getElementById('productGrid');
   const title = document.getElementById('sectionTitle');
   const featured = document.getElementById('featuredSection');
@@ -891,6 +897,7 @@ document.getElementById('searchInput').addEventListener('input', e => {
     document.querySelector('[data-cat="todo"]').classList.add('active');
   }
   renderProducts();
+  //loadProducts();
 });
 
 // Modal
@@ -912,7 +919,8 @@ function closeModal(e) {
   document.body.style.overflow = '';
 }
 
-renderProducts();
+//renderProducts();
+  loadData();
 </script>
 </body>
 </html>
