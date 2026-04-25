@@ -789,8 +789,8 @@ async function loadData(){
         name: cols[1]?.trim(),
         desc: cols[2]?.trim() || "",
         price: cols[3]?.trim(),
-        cat: cols[4]?.trim(),
-        emoji: cols[5]?.trim() || "☕",
+        cat: cols[5]?.trim(),
+        emoji: cols[4]?.trim() || "☕",
         tag: cols[6]?.trim() || ""
       };
     }).filter(p => p.id);
