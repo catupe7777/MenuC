@@ -638,7 +638,7 @@
   <div class="cats-wrap">
     <div class="cats" id="catContainer">
       <button class="cat-btn active" data-cat="todo">🩵 Todo</button>
-      <button class="cat-btn" data-cat="bebeidas_calientes">☕ Bebidas calientes</button>
+      <button class="cat-btn" data-cat="bebidas_calientes">☕ Bebidas calientes</button>
       <button class="cat-btn" data-cat="bebidas_frias">🍹 Bebidas frías</button>
       <button class="cat-btn" data-cat="dulces">🍪 Dulce</button>
       <button class="cat-btn" data-cat="salados">🥪 Salado</button>
@@ -857,9 +857,10 @@ function renderProducts() {
     if (p.tag === 'popular') badge = `<div class="tag-badge tag-popular">🔥 Popular</div>`;
     if (p.tag === 'nuevo')   badge = `<div class="tag-badge tag-nuevo">✨ Nuevo</div>`;
 
+    //<div class="product-emoji-inner">${p.emoji}</div>
     card.innerHTML = `
       <div class="product-emoji-wrap">
-        <div class="product-emoji-inner">${p.emoji}</div>
+        <img class="product-emoji-inner" src="${p.emoji}"/>
       </div>
       <div class="product-info">
         ${badge}
