@@ -787,7 +787,7 @@ async function loadData(){
       return { id, name, price, img, cat,emoji:'☕' };
     }).filter(i=>i.id);
 
-    renderProducts();
+    //renderProducts();
   }catch(e){
     console.error("Error cargando Google Sheets", e);
   }
@@ -814,6 +814,7 @@ function waUrl(productName) {
 }
 
 function renderProducts() {
+  loadData();
   const grid = document.getElementById('productGrid');
   const title = document.getElementById('sectionTitle');
   const featured = document.getElementById('featuredSection');
