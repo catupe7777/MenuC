@@ -786,7 +786,7 @@ async function loadData(){
     products = rows.map(row => {
       const [id,name,price,img,cat] = row.split(",");
       return { id, name, price, img, cat,emoji:'☕' };
-    });//.filter(i=>i.id);
+    }).filter(i=>i.id);
     
     //renderProducts();
   }catch(e){
