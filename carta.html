@@ -780,13 +780,14 @@ async function loadData(){
 
     // Convert CSV a JSON simple
     //const rows = text.split(",").slice(1);
-    const rows = text.split("\r\n");
-
+    //const rows = text.split("\r\n");
+    const products = text.split("\r\n");
+    /*
     products = rows.map(row => {
       const [id,name,price,img,cat] = row.split(",");
       return { id, name, price, img, cat,emoji:'☕' };
     }).filter(i=>i.id);
-
+    */
     //renderProducts();
   }catch(e){
     console.error("Error cargando Google Sheets", e);
