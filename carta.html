@@ -695,7 +695,7 @@
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
   <div class="modal" id="modalContent">
     <div class="modal-handle"></div>
-    <div class="modal-emoji" id="mEmoji"></div>
+    <div class="modal-emoji" id="mEmoji"><img id="mEmojiImg" class="emoji-modal"/></div>
     <div class="modal-name" id="mName"></div>
     <div class="modal-desc" id="mDesc"></div>
     <div class="modal-price" id="mPrice"></div>
@@ -908,7 +908,7 @@ document.getElementById('searchInput').addEventListener('input', e => {
 function openModal(id) {
   const p = products.find(x => x.id === id);
   if (!p) return;
-  document.getElementById('mEmoji').textContent = p.emoji;
+  document.getElementById('mEmojiImg').src = p.emoji;
   document.getElementById('mName').textContent = p.name;
   document.getElementById('mDesc').textContent = p.desc;
   document.getElementById('mPrice').textContent = p.price;
